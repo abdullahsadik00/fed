@@ -24,15 +24,15 @@ main();
 console.log("Final Counter:", counter);
 
 // Q2: Understanding this in different contexts
-var name= "Global";
+var name = "Global";
 
 function showName() {
-    console.log(this.name);
+  console.log(this.name);
 }
 
-var obj= {
-    name:"Object",
-    show: showName()
+var obj = {
+  name: "Object",
+  show: showName(),
 };
 
 // showName();// Output 1: undefined
@@ -42,14 +42,14 @@ var obj= {
 // Q3: Execution Context with conditionals
 var value = 1;
 function check() {
-  console.log("value : ",value)
+  console.log("value : ", value);
   if (value === 1) {
     var value = 2;
-    console.log("inside if",value);
+    console.log("inside if", value);
   }
-  console.log("outside if",value);
+  console.log("outside if", value);
 }
-check()
+check();
 /*
 EXPECTED OUTPUT:
 Value: undefined
@@ -63,3 +63,61 @@ EXPLANATION:
 - First log shows undefined (not 1!)
 - After assignment, value becomes 2
 */
+
+// Q4: Function expression vs declaration
+console.log(foo);
+console.log(bar);
+function foo() {
+  return "foo";
+}
+var bar = function () {
+  return "bar";
+};
+console.log(foo());
+console.log(bar());
+/*
+Output 1: [Function: foo] (entire function)
+Output 2: undefined (only var declaration hoisted)
+Output 3: "foo"
+Output 4: "bar"
+*/
+
+// Q5: Hoisting with same name
+var myVar = "global";
+function test() {
+  console.log(myVar);
+  var myVar = "local";
+  console.log(myVar);
+}
+test();
+console.log(myVar);
+
+/*
+Output 1: undefined (local myVar is hoisted, shadows global)
+Output 2: "local"
+Output 3: "global" (global unchanged)
+*/
+
+//  Q6: Multiple declarations
+function example() {
+  console.log(a);
+  // console.log(b);
+  // console.log(c);
+
+  var a = 1;
+  let b = 2;
+  const c = 3;
+
+  console.log(a);
+  console.log(b);
+  console.log(c);
+}
+
+example();
+
+/*
+- First console.log(a) → undefined
+- First console.log(b) → ReferenceError (TDZ)
+The code stops at the ReferenceError before reaching other logs
+*/
+

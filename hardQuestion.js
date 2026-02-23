@@ -135,3 +135,90 @@ for (var i = 1; i <= 3; i++) {
     })(i);
 }
 */
+// Q5: Hoisting with conditionals
+
+console.log(typeof fooFun);
+if(true){
+  function fooFun() {
+    return "inside if"
+  }
+}
+
+console.log(fooFun);
+console.log(fooFun());
+
+/*
+Output 1: "undefined" (function inside block not hoisted to top)
+Output 2: "function"
+Output 3: "inside if"
+*/
+
+//  Q6: Hoisting in IIFE
+
+const result = (function () {
+  console.log(a);
+  console.log(foo());
+  var a = 10;
+function foo( ) {
+  return 'foo called'
+}
+return a + 20;
+})();
+console.log(result)
+
+//  Q7: Class hoisting
+
+// const instance = new MyClass(); // What happens?
+
+class MyClass {
+    constructor() {
+        this.name= "MyClass";
+    }
+}
+
+const instance = new MyClass();
+console.log(instance.name);
+
+/*
+YOUR ANSWER:
+What happens if we uncomment the first line?
+_______________
+
+EXPECTED:
+ReferenceError: Cannot access 'MyClass' before initialization
+
+Classes are hoisted but remain in TDZ until evaluated.
+This is intentional to catch errors early.
+*/
+
+// Q8: Complex hoisting scenario (Interview favorite!)
+var a= 1;
+function b() {
+    a= 10;
+    return;
+    function a() {}
+}
+b();
+console.log(a);
+
+// 9: Parameter and variable hoisting
+function test(a) {
+    console.log(a);
+    var a= 100;
+    console.log(a);
+}
+
+test(10);
+
+/*
+
+Output 1: 10 (parameter value)
+Output 2: 100
+
+EXPLANATION:
+- Parameter 'a' is like 'var a = 10' at the start
+- var a = 100 is hoisted, but since 'a' already exists,
+  it doesn't create a new variable
+- First log uses parameter value (10)
+- After assignment, a becomes 100
+*/
