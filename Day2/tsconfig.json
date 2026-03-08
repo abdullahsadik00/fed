@@ -1,0 +1,76 @@
+{
+  "compilerOptions": {
+    // ─────────────────────────────────────────────────────────
+    // PROJECT OPTIONS
+    // ─────────────────────────────────────────────────────────
+    "target": "ES2020",           // Output JavaScript version
+    "module": "ESNext",           // Module system (ESNext, CommonJS)
+    "lib": ["ES2020", "DOM"],     // Type definitions to include
+    "outDir": "./dist",           // Output directory
+    "rootDir": "./src",           // Source directory
+    "declaration": true,          // Generate .d.ts files
+    "declarationMap": true,       // Generate sourcemaps for .d.ts
+    "sourceMap": true,            // Generate .js.map files
+
+    // ─────────────────────────────────────────────────────────
+    // STRICT TYPE CHECKING (Recommended: all true)
+    // ─────────────────────────────────────────────────────────
+    "strict": true,               // Enable all strict options
+    "strictNullChecks": true,     // null/undefined are separate types
+    "strictFunctionTypes": true,  // Strict function type checking
+    "strictBindCallApply": true,  // Check bind, call, apply
+    "strictPropertyInitialization": true, // Class properties must be initialized
+    "noImplicitAny": true,        // Error on implicit 'any'
+    "noImplicitThis": true,       // Error on implicit 'this'
+    "alwaysStrict": true,         // Parse in strict mode
+
+    // ─────────────────────────────────────────────────────────
+    // ADDITIONAL CHECKS
+    // ─────────────────────────────────────────────────────────
+    "noUnusedLocals": true,       // Error on unused local variables
+    "noUnusedParameters": true,   // Error on unused parameters
+    "noImplicitReturns": true,    // Error if not all paths return
+    "noFallthroughCasesInSwitch": true, // Error on fallthrough in switch
+    "noUncheckedIndexedAccess": true,   // Add undefined to index signatures
+    "exactOptionalPropertyTypes": true, // Differentiate between undefined and missing
+
+    // ─────────────────────────────────────────────────────────
+    // MODULE RESOLUTION
+    // ─────────────────────────────────────────────────────────
+    "moduleResolution": "node",   // or "bundler" for modern bundlers
+    "baseUrl": "./src",           // Base directory for imports
+    "paths": {                    // Path aliases
+      "@components/*": ["components/*"],
+      "@utils/*": ["utils/*"],
+      "@types/*": ["types/*"]
+    },
+    "esModuleInterop": true,      // Better CommonJS interop
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,    // Allow importing JSON files
+
+    // ─────────────────────────────────────────────────────────
+    // EXPERIMENTAL
+    // ─────────────────────────────────────────────────────────
+    "experimentalDecorators": true,    // Enable decorators
+    "emitDecoratorMetadata": true,     // Emit metadata for decorators
+
+    // ─────────────────────────────────────────────────────────
+    // ADVANCED
+    // ─────────────────────────────────────────────────────────
+    "skipLibCheck": true,         // Skip type checking of .d.ts files
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,          // Faster subsequent builds
+    "composite": true             // For project references
+  },
+
+  "include": [
+    "src/**/*"
+  ],
+
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts"
+  ]
+}
+
