@@ -11,4 +11,10 @@ declare let nullValue: null;
 declare let undefinedValue: undefined;
 declare let maybeString: string | null;
 declare let optionalNumber: number | undefined;
+declare let sym1: symbol;
+declare let sym2: symbol;
+declare let bigNumber: bigint;
+declare let bigNumber2: bigint;
+declare let anything: any;
+declare let unknownValue: unknown;
 //# sourceMappingURL=index.d.ts.map
