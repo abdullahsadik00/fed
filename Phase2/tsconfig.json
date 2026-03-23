@@ -4,7 +4,7 @@
     // PROJECT OPTIONS
     // ─────────────────────────────────────────────────────────
     "target": "ES2020",           // Output JavaScript version
-    "module": "ESNext",           // Module system (ESNext, CommonJS)
+    "module": "NodeNext",           // Module system (ESNext, CommonJS)
     "lib": ["ES2020", "DOM"],     // Type definitions to include
     "outDir": "./dist",           // Output directory
     "rootDir": "./src",           // Source directory
@@ -37,12 +37,12 @@
     // ─────────────────────────────────────────────────────────
     // MODULE RESOLUTION
     // ─────────────────────────────────────────────────────────
-    "moduleResolution": "node",   // or "bundler" for modern bundlers
-    "baseUrl": "./src",           // Base directory for imports
+    "moduleResolution": "NodeNext",   // or "bundler" for modern bundlers
+    // "baseUrl": ".",           // Base directory for imports
     "paths": {                    // Path aliases
-      "@components/*": ["components/*"],
-      "@utils/*": ["utils/*"],
-      "@types/*": ["types/*"]
+      "@components/*": ["./src/components/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@types/*": ["./src/types/*"]
     },
     "esModuleInterop": true,      // Better CommonJS interop
     "allowSyntheticDefaultImports": true,
